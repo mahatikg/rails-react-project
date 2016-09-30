@@ -15,8 +15,7 @@ class ApplicationController < ActionController::API
   end
 
   def authenticate
-    render json: {error: 'Hey! you are unauthorized!'}, status: 401
-    unless logged_in?
+    render json: {error: 'Hey! you are unauthorized!'}, status: 401 unless logged_in?
   end
 
   private
