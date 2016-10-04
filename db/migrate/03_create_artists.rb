@@ -3,10 +3,12 @@ class CreateArtists < ActiveRecord::Migration[5.0]
     create_table :artists do |t|
       t.string :name
       t.string :image
-      t.string :genres
+      t.text :genres, array: true, default: []
       t.string :popularity
       t.string :artist_link
       t.string :spotify_artist_id
+
+      
 
       t.timestamps
     end

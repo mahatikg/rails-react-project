@@ -6,4 +6,9 @@ Rails.application.routes.draw do
 
   post '/callback/', to: 'sessions#authcode'
   get '/callback/', to: 'sessions#authcode'
+
+  get '/users', to: 'users#index'
+  get '/users/:id', to: 'users#show'
+
+
 end
