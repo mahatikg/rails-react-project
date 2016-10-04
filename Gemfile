@@ -16,6 +16,7 @@ gem 'puma', '~> 3.0'
  gem 'bcrypt', '~> 3.1.7'
  gem 'figaro'
  gem 'rest-client'
+ gem 'httparty'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
