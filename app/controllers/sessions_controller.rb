@@ -24,7 +24,6 @@ class SessionsController < ApplicationController
     # binding.pry
     # RestClient.get 'https://accounts.spotify.com/authorize/', {params: {client_id: "031ed6ea90bd4727b184cd84219dd697", response_type: "code", redirect_uri: 'http://localhost:3000/callback' }}
     url= "https://accounts.spotify.com/authorize/"
-
     client_id_formated = "?client_id=" + ENV["client_id"]
     response_type = "&response_type=code"
     callback = "&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fcallback%2F"

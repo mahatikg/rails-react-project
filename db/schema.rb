@@ -18,12 +18,12 @@ ActiveRecord::Schema.define(version: 20161003223751) do
   create_table "artists", force: :cascade do |t|
     t.string   "name"
     t.string   "image"
-    t.string   "genres"
+    t.text     "genres",            default: [],              array: true
     t.string   "popularity"
     t.string   "artist_link"
     t.string   "spotify_artist_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "songs", force: :cascade do |t|
@@ -38,17 +38,19 @@ ActiveRecord::Schema.define(version: 20161003223751) do
   create_table "user_artists", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "artist_id"
-    t.integer  "artist_rating"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "artist_ranking"
+    t.string   "term"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "user_songs", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "song_id"
-    t.integer  "song_rating"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "song_ranking"
+    t.string   "term"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|

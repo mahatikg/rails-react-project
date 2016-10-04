@@ -3,8 +3,12 @@ module Adapters
     attr_accessor :token
 
     def initialize(params)
-      @token = get_token(params["code"])
+      binding.pry
+      @token = get_token(params["code"])['token']
     end
+
+
+
 
     def get_current_user_info #makes regular api call to spotify once we got token
       HTTParty.get("https://api.spotify.com/v1/me/", headers: {"Authorization" => "Bearer #{self.token}"})
@@ -12,8 +16,18 @@ module Adapters
       #need to instantiate new user from here
     end
 
-    def get_token(code) # the HTTParty code we wrote in the sessions controller to get the token
-      HTTParty.get the token blah blah
+    def get_token(code) # uses the code we got from initial request to get the token
+      grant_type= "authorization_code"
+      redirect_uri="http%3A%2F%2Flocalhost%3A3000%2Fcallback%2F"
+      HTTParty.post("https://accounts.spotify.com/api/token",
+          body: {
+          client_id: ENV["client_id"],
+          client_secret: ENV["client_secret"],
+          redirect_uri:   redirect_uri,
+          grant_type: "authorization_code",
+          code: code
+          }
+        )
     end
 
 ###################################################
