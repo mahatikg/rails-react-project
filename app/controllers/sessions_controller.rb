@@ -12,16 +12,15 @@ class SessionsController < ApplicationController
     me_object = spotify_client.get_current_user
     username = me_object["id"]
     user = User.find_or_create_by(username: username)
-    binding.pry
       if user
         token = Auth.issue({id: user.id})
-        binding.pry
-        session[:token] = token
+
+        # session[:token] = token
       end
   end
 
   def token
-    binding.pry
+    render json: User.all
   end
 
  #  def create(username) #Instantiates User
