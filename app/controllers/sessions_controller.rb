@@ -4,7 +4,9 @@ require 'httparty'
 class SessionsController < ApplicationController
   # skip_before_action :authenticate
 
-
+  def get_auth_code
+    HTTParty.get("https://accounts.spotify.com/authorize/?client_id=031ed6ea90bd4727b184cd84219dd697&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A5050%2Fcallback%2F&scope=user-top-read")
+  end
 
   def parsecode #calls adapter method get_token
     spotify_client = Adapters::SpotifyApi.new(params)
@@ -15,12 +17,22 @@ class SessionsController < ApplicationController
       if user
         token = Auth.issue({id: user.id})
 
-        # session[:token] = token
+        session[:token] = token
+        puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        puts "#{session[:token]}"
       end
   end
 
   def token
-    render json: User.all
+    puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    puts "IN TOKEN METHOD"
+    binding.pry
+    puts "#{session[:token]}"
+    if session[:token]
+      render json: {jwt: session[:token]}
+    else 
+      render json: {error: "Token not available"}
+    end
   end
 
  #  def create(username) #Instantiates User

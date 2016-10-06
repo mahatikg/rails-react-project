@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show'
 
   get '/token', to: 'sessions#token'
+  get '/get-auth-code', to: "sessions#get_auth_code"
 
 
 end

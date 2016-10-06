@@ -1,0 +1,3 @@
+Rails.application.config.secret_token = 'b7f959cfc7db71457add6d6a48b951966e6d4a60f7d94ce28998ea382558c04ff1853fe7fa5d7d6506998f32ce7e3855b31c87d5c98cf8681ad25993fc3e53c1'
+Rails.application.config.session_store :cookie_store, key: '_rails-react-project_session'
+
