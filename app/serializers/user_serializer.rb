@@ -10,7 +10,8 @@ class UserSerializer < ActiveModel::Serializer
       newartist = {name: artist["name"], popularity: artist["popularity"], image: artist["image"], rank: ualine.artist_ranking }
       modified_artist << newartist
     end
-    {artists: modified_artist}
+    sorted_artists = modified_artist.sort_by { |artist| artist[:rank] }
+    {artists: sorted_artists}
 
   end
 
