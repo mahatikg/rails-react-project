@@ -26,8 +26,11 @@ module ReactProject
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
-    config.api_only = true
+    config.api_only = false
     config.autoload_paths << Rails.root.join('lib')
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
+    # config.middleware.insert_after ActionDispatch::Cookies, ActionDispatch::Session::CookieStore, :key => '_rails-react-project_session'
 
   end
 end

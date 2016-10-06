@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   # before_action :authenticate
+  include ::ActionController::Cookies
 
   def logged_in?
     !!current_user
