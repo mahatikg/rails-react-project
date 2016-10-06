@@ -1938,3 +1938,632 @@ spotifyhash = JSON.parse('{ "items" : [ {
            user_artist = UserArtist.new(user_id: mahati.id, artist_id: artist.id, artist_ranking: ranking, term: 'M')
            user_artist.save
          end
+
+         jasper_track = JSON.parse('{
+  "items" : [ {
+    "album" : {
+      "album_type" : "SINGLE",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/5luxyH82XhSJI4s2ofg5mg"
+      },
+      "href" : "https://api.spotify.com/v1/albums/5luxyH82XhSJI4s2ofg5mg",
+      "id" : "5luxyH82XhSJI4s2ofg5mg",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/680102c341665cb19a4f61ebc46412d02aebbd7c",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/d43802125805ebf9cb4388409fb343a403c8c001",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/9a3e32c001db9bcdfa9bdb19ecf2979b16e7812b",
+        "width" : 64
+      } ],
+      "name" : "All at Once",
+      "type" : "album",
+      "uri" : "spotify:album:5luxyH82XhSJI4s2ofg5mg"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/6Yv6OBXD6ZQakEljaGaDAk"
+      },
+      "href" : "https://api.spotify.com/v1/artists/6Yv6OBXD6ZQakEljaGaDAk",
+      "id" : "6Yv6OBXD6ZQakEljaGaDAk",
+      "name" : "Allan Rayman",
+      "type" : "artist",
+      "uri" : "spotify:artist:6Yv6OBXD6ZQakEljaGaDAk"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 180000,
+    "explicit" : true,
+    "external_ids" : {
+      "isrc" : "CAUC01500054"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/7HELuT58gcUXMMjdn0hP13"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/7HELuT58gcUXMMjdn0hP13",
+    "id" : "7HELuT58gcUXMMjdn0hP13",
+    "is_playable" : true,
+    "name" : "All at Once",
+    "popularity" : 56,
+    "preview_url" : "https://p.scdn.co/mp3-preview/5e52f8973c16ca1c087c2c1ae5e2e87bbb4d067b",
+    "track_number" : 1,
+    "type" : "track",
+    "uri" : "spotify:track:7HELuT58gcUXMMjdn0hP13"
+  }, {
+    "album" : {
+      "album_type" : "ALBUM",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/6JF49ixyHmOgS0Rsda2k42"
+      },
+      "href" : "https://api.spotify.com/v1/albums/6JF49ixyHmOgS0Rsda2k42",
+      "id" : "6JF49ixyHmOgS0Rsda2k42",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/bd22abae4e4c0c91ccbae48dcf19cdfba800d8c3",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/4efc43993bdcdb82a2d53bf6665d8ff461783696",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/5ff077152b9fe9c2f7e7d6e3f5e45ad88d4f27dc",
+        "width" : 64
+      } ],
+      "name" : "Cilvia Demo",
+      "type" : "album",
+      "uri" : "spotify:album:6JF49ixyHmOgS0Rsda2k42"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/6aaMZ3fcfLv4tEbmY7bjRM"
+      },
+      "href" : "https://api.spotify.com/v1/artists/6aaMZ3fcfLv4tEbmY7bjRM",
+      "id" : "6aaMZ3fcfLv4tEbmY7bjRM",
+      "name" : "Isaiah Rashad",
+      "type" : "artist",
+      "uri" : "spotify:artist:6aaMZ3fcfLv4tEbmY7bjRM"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/7tYKF4w9nC0nq9CsPZTHyP"
+      },
+      "href" : "https://api.spotify.com/v1/artists/7tYKF4w9nC0nq9CsPZTHyP",
+      "id" : "7tYKF4w9nC0nq9CsPZTHyP",
+      "name" : "SZA",
+      "type" : "artist",
+      "uri" : "spotify:artist:7tYKF4w9nC0nq9CsPZTHyP"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 167276,
+    "explicit" : true,
+    "external_ids" : {
+      "isrc" : "TCABT1443717"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/0Gt4nGWoATcQFL38a1NRao"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/0Gt4nGWoATcQFL38a1NRao",
+    "id" : "0Gt4nGWoATcQFL38a1NRao",
+    "is_playable" : true,
+    "name" : "West Savannah (feat. SZA)",
+    "popularity" : 48,
+    "preview_url" : "https://p.scdn.co/mp3-preview/35d9ab8fa318009ca3514fb657d5f68e1c8cfa5a",
+    "track_number" : 6,
+    "type" : "track",
+    "uri" : "spotify:track:0Gt4nGWoATcQFL38a1NRao"
+  }, {
+    "album" : {
+      "album_type" : "ALBUM",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/1lI1gzn63x4WkD41okIJZ4"
+      },
+      "href" : "https://api.spotify.com/v1/albums/1lI1gzn63x4WkD41okIJZ4",
+      "id" : "1lI1gzn63x4WkD41okIJZ4",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/795d5d17f9604c0c887d315ac4c46330019012ae",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/324063da677c9ecc4a2effa6592f5f98cdd9635e",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/a1f179bcd443b1159261c173406e0038b1ab41ec",
+        "width" : 64
+      } ],
+      "name" : "Couch Potato",
+      "type" : "album",
+      "uri" : "spotify:album:1lI1gzn63x4WkD41okIJZ4"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/22g86cix6LCeLMbu3m91Wo"
+      },
+      "href" : "https://api.spotify.com/v1/artists/22g86cix6LCeLMbu3m91Wo",
+      "id" : "22g86cix6LCeLMbu3m91Wo",
+      "name" : "Bobby Raps",
+      "type" : "artist",
+      "uri" : "spotify:artist:22g86cix6LCeLMbu3m91Wo"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/3K40SMapVhc8PxyYFofHff"
+      },
+      "href" : "https://api.spotify.com/v1/artists/3K40SMapVhc8PxyYFofHff",
+      "id" : "3K40SMapVhc8PxyYFofHff",
+      "name" : "Corbin",
+      "type" : "artist",
+      "uri" : "spotify:artist:3K40SMapVhc8PxyYFofHff"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 207560,
+    "explicit" : true,
+    "external_ids" : {
+      "isrc" : "TCACH1510131"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/0VVayn6rXlPniCphi4S17B"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/0VVayn6rXlPniCphi4S17B",
+    "id" : "0VVayn6rXlPniCphi4S17B",
+    "is_playable" : true,
+    "name" : "Welcome to the Hell Zone",
+    "popularity" : 45,
+    "preview_url" : "https://p.scdn.co/mp3-preview/a133479cada124497591ce84c6c0831aadb3aeaa",
+    "track_number" : 1,
+    "type" : "track",
+    "uri" : "spotify:track:0VVayn6rXlPniCphi4S17B"
+  }, {
+    "album" : {
+      "album_type" : "SINGLE",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/1VaeZ2lHr0KNG8RmyI66VR"
+      },
+      "href" : "https://api.spotify.com/v1/albums/1VaeZ2lHr0KNG8RmyI66VR",
+      "id" : "1VaeZ2lHr0KNG8RmyI66VR",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/7827089b3afc38b8abab5155f4bbf65139d35e18",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/58462e5d49ade449d6ccb6b042f41951618a37b1",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/d2011a2e36c76a5d60c87443b870420e66abc5cc",
+        "width" : 64
+      } ],
+      "name" : "NEVERALONE",
+      "type" : "album",
+      "uri" : "spotify:album:1VaeZ2lHr0KNG8RmyI66VR"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/2PU4qFehXQF7WnlFsJpBiJ"
+      },
+      "href" : "https://api.spotify.com/v1/artists/2PU4qFehXQF7WnlFsJpBiJ",
+      "id" : "2PU4qFehXQF7WnlFsJpBiJ",
+      "name" : "Raury",
+      "type" : "artist",
+      "uri" : "spotify:artist:2PU4qFehXQF7WnlFsJpBiJ"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 285733,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "USSM11606566"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/0SHYBsRLsmRc2oVet4QcGm"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/0SHYBsRLsmRc2oVet4QcGm",
+    "id" : "0SHYBsRLsmRc2oVet4QcGm",
+    "is_playable" : true,
+    "name" : "NEVERALONE",
+    "popularity" : 50,
+    "preview_url" : "https://p.scdn.co/mp3-preview/07d76b34ffce45ec2140dedb25a2f5237548dce8",
+    "track_number" : 1,
+    "type" : "track",
+    "uri" : "spotify:track:0SHYBsRLsmRc2oVet4QcGm"
+  }, {
+    "album" : {
+      "album_type" : "SINGLE",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/2kPZEuxkqMATSwqejZHvi9"
+      },
+      "href" : "https://api.spotify.com/v1/albums/2kPZEuxkqMATSwqejZHvi9",
+      "id" : "2kPZEuxkqMATSwqejZHvi9",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/ef1016bb494d14a39af9c52789bcd8edba780bd4",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/19a2fb338c944b4daa28e120589b4d4bd74ee7f1",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/65b0ad07544924eebe2fbe76c544f5b136887624",
+        "width" : 64
+      } ],
+      "name" : "Perfect Grace",
+      "type" : "album",
+      "uri" : "spotify:album:2kPZEuxkqMATSwqejZHvi9"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/09rD2V564B6VYi5yAnvVVg"
+      },
+      "href" : "https://api.spotify.com/v1/artists/09rD2V564B6VYi5yAnvVVg",
+      "id" : "09rD2V564B6VYi5yAnvVVg",
+      "name" : "Kwamie Liv",
+      "type" : "artist",
+      "uri" : "spotify:artist:09rD2V564B6VYi5yAnvVVg"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 215708,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "TCACL1624779"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/0czaqZjbTBymgP3QYjnvrs"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/0czaqZjbTBymgP3QYjnvrs",
+    "id" : "0czaqZjbTBymgP3QYjnvrs",
+    "is_playable" : true,
+    "name" : "Perfect Grace",
+    "popularity" : 45,
+    "preview_url" : "https://p.scdn.co/mp3-preview/3831c8582ca3a4960a8da984c7bd962462251b3c",
+    "track_number" : 1,
+    "type" : "track",
+    "uri" : "spotify:track:0czaqZjbTBymgP3QYjnvrs"
+  }, {
+    "album" : {
+      "album_type" : "ALBUM",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/01uabHpYa9AA55wc6AwRQL"
+      },
+      "href" : "https://api.spotify.com/v1/albums/01uabHpYa9AA55wc6AwRQL",
+      "id" : "01uabHpYa9AA55wc6AwRQL",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/a7830294681bce03d5d1033b4a98c38bc9dcaedc",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/5020a71a285a2063573d388167471c84678e3e71",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/0ad96403a6f2638d894359f70a84706b530c26c1",
+        "width" : 64
+      } ],
+      "name" : "In Colour",
+      "type" : "album",
+      "uri" : "spotify:album:01uabHpYa9AA55wc6AwRQL"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/7A0awCXkE1FtSU8B0qwOJQ"
+      },
+      "href" : "https://api.spotify.com/v1/artists/7A0awCXkE1FtSU8B0qwOJQ",
+      "id" : "7A0awCXkE1FtSU8B0qwOJQ",
+      "name" : "Jamie xx",
+      "type" : "artist",
+      "uri" : "spotify:artist:7A0awCXkE1FtSU8B0qwOJQ"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 291018,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "UK7MC1500001"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/1egVLpTrGvaWtUcR2xDoaN"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/1egVLpTrGvaWtUcR2xDoaN",
+    "id" : "1egVLpTrGvaWtUcR2xDoaN",
+    "is_playable" : true,
+    "name" : "Gosh",
+    "popularity" : 47,
+    "preview_url" : "https://p.scdn.co/mp3-preview/c18d95927c9dd7fc89977d7bd3a52348d7bae985",
+    "track_number" : 1,
+    "type" : "track",
+    "uri" : "spotify:track:1egVLpTrGvaWtUcR2xDoaN"
+  }, {
+    "album" : {
+      "album_type" : "SINGLE",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/7pPVcx3O9eZrPCgBmpW5HV"
+      },
+      "href" : "https://api.spotify.com/v1/albums/7pPVcx3O9eZrPCgBmpW5HV",
+      "id" : "7pPVcx3O9eZrPCgBmpW5HV",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/6c844547e0aed4630f5c00948291484b66ae6018",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/d5e6e260b8ae11a389b4971f0461f3137a4f07e5",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/9ea44a43134abc1e29b7fb4197515f2a1d983a59",
+        "width" : 64
+      } ],
+      "name" : "Show Me Love (feat. Chance The Rapper, Moses Sumney and Robin Hannibal) [Skrillex Remix]",
+      "type" : "album",
+      "uri" : "spotify:album:7pPVcx3O9eZrPCgBmpW5HV"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/108ugtkRFQzP9nGgNiyERO"
+      },
+      "href" : "https://api.spotify.com/v1/artists/108ugtkRFQzP9nGgNiyERO",
+      "id" : "108ugtkRFQzP9nGgNiyERO",
+      "name" : "Hundred Waters",
+      "type" : "artist",
+      "uri" : "spotify:artist:108ugtkRFQzP9nGgNiyERO"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/1anyVhU62p31KFi8MEzkbf"
+      },
+      "href" : "https://api.spotify.com/v1/artists/1anyVhU62p31KFi8MEzkbf",
+      "id" : "1anyVhU62p31KFi8MEzkbf",
+      "name" : "Chance The Rapper",
+      "type" : "artist",
+      "uri" : "spotify:artist:1anyVhU62p31KFi8MEzkbf"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5W10uJRsbt9bROJDKoI1Wn"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5W10uJRsbt9bROJDKoI1Wn",
+      "id" : "5W10uJRsbt9bROJDKoI1Wn",
+      "name" : "Moses Sumney",
+      "type" : "artist",
+      "uri" : "spotify:artist:5W10uJRsbt9bROJDKoI1Wn"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/0qVb1coEo0OVOpP9kphf6U"
+      },
+      "href" : "https://api.spotify.com/v1/artists/0qVb1coEo0OVOpP9kphf6U",
+      "id" : "0qVb1coEo0OVOpP9kphf6U",
+      "name" : "Robin Hannibal",
+      "type" : "artist",
+      "uri" : "spotify:artist:0qVb1coEo0OVOpP9kphf6U"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/5he5w2lnU9x7JFhnwcekXX"
+      },
+      "href" : "https://api.spotify.com/v1/artists/5he5w2lnU9x7JFhnwcekXX",
+      "id" : "5he5w2lnU9x7JFhnwcekXX",
+      "name" : "Skrillex",
+      "type" : "artist",
+      "uri" : "spotify:artist:5he5w2lnU9x7JFhnwcekXX"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 241846,
+    "explicit" : true,
+    "external_ids" : {
+      "isrc" : "USAT21600398"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/5PnBpKOVvQxeFvXVNYSoxs"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/5PnBpKOVvQxeFvXVNYSoxs",
+    "id" : "5PnBpKOVvQxeFvXVNYSoxs",
+    "is_playable" : true,
+    "name" : "Show Me Love (feat. Chance The Rapper, Moses Sumney and Robin Hannibal) - Skrillex Remix",
+    "popularity" : 64,
+    "preview_url" : "https://p.scdn.co/mp3-preview/dc295b6026c6cc5b76cdcced8ae2e3da66851bcc",
+    "track_number" : 1,
+    "type" : "track",
+    "uri" : "spotify:track:5PnBpKOVvQxeFvXVNYSoxs"
+  }, {
+    "album" : {
+      "album_type" : "ALBUM",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/2qCyMMQ785sPH4Yx25GQZ8"
+      },
+      "href" : "https://api.spotify.com/v1/albums/2qCyMMQ785sPH4Yx25GQZ8",
+      "id" : "2qCyMMQ785sPH4Yx25GQZ8",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/a21d806d39189e9c69abd0cd904c65be4efcc29a",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/e713796bd8b28f63b001cee2ffefe54d233fba5f",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/b8ca3b5b339c7ef244853378581b65998afb21df",
+        "width" : 64
+      } ],
+      "name" : "Z",
+      "type" : "album",
+      "uri" : "spotify:album:2qCyMMQ785sPH4Yx25GQZ8"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/7tYKF4w9nC0nq9CsPZTHyP"
+      },
+      "href" : "https://api.spotify.com/v1/artists/7tYKF4w9nC0nq9CsPZTHyP",
+      "id" : "7tYKF4w9nC0nq9CsPZTHyP",
+      "name" : "SZA",
+      "type" : "artist",
+      "uri" : "spotify:artist:7tYKF4w9nC0nq9CsPZTHyP"
+    }, {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg"
+      },
+      "href" : "https://api.spotify.com/v1/artists/2YZyLoL8N0Wb9xBt1NhZWg",
+      "id" : "2YZyLoL8N0Wb9xBt1NhZWg",
+      "name" : "Kendrick Lamar",
+      "type" : "artist",
+      "uri" : "spotify:artist:2YZyLoL8N0Wb9xBt1NhZWg"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 234284,
+    "explicit" : true,
+    "external_ids" : {
+      "isrc" : "TCABW1406849"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/6Aj2H0Z0v0JgnSfPEwCgW0"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/6Aj2H0Z0v0JgnSfPEwCgW0",
+    "id" : "6Aj2H0Z0v0JgnSfPEwCgW0",
+    "is_playable" : true,
+    "name" : "Babylon (feat. Kendrick Lamar)",
+    "popularity" : 55,
+    "preview_url" : "https://p.scdn.co/mp3-preview/3dc9d717069b09821c7ee4fb76eabd53747e077c",
+    "track_number" : 7,
+    "type" : "track",
+    "uri" : "spotify:track:6Aj2H0Z0v0JgnSfPEwCgW0"
+  }, {
+    "album" : {
+      "album_type" : "SINGLE",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/0duqe8vlRc0h5AqxzHIm6N"
+      },
+      "href" : "https://api.spotify.com/v1/albums/0duqe8vlRc0h5AqxzHIm6N",
+      "id" : "0duqe8vlRc0h5AqxzHIm6N",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/f2b2338a588c95cdf870bd0d7028a7c73e300844",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/32f9f4dd4897ba8c7ef581f48bafb140c79d78a3",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/0ef0b6e1e7b6ade67cd9272e472462dd016e6c80",
+        "width" : 64
+      } ],
+      "name" : "Falling Out - EP",
+      "type" : "album",
+      "uri" : "spotify:album:0duqe8vlRc0h5AqxzHIm6N"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/6uI2KKGvDh27bByTg5RAeF"
+      },
+      "href" : "https://api.spotify.com/v1/artists/6uI2KKGvDh27bByTg5RAeF",
+      "id" : "6uI2KKGvDh27bByTg5RAeF",
+      "name" : "Otzeki",
+      "type" : "artist",
+      "uri" : "spotify:artist:6uI2KKGvDh27bByTg5RAeF"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 229347,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "US23A1500122"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/4YvJwbYJ0TTQN4wlfDSjMY"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/4YvJwbYJ0TTQN4wlfDSjMY",
+    "id" : "4YvJwbYJ0TTQN4wlfDSjMY",
+    "is_playable" : true,
+    "name" : "Hope in Hell",
+    "popularity" : 36,
+    "preview_url" : "https://p.scdn.co/mp3-preview/4c0ead75541502cec85305183c3a61f3f2f6e074",
+    "track_number" : 2,
+    "type" : "track",
+    "uri" : "spotify:track:4YvJwbYJ0TTQN4wlfDSjMY"
+  }, {
+    "album" : {
+      "album_type" : "SINGLE",
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/1vOmM3sMLCj1vVjzrnRtRf"
+      },
+      "href" : "https://api.spotify.com/v1/albums/1vOmM3sMLCj1vVjzrnRtRf",
+      "id" : "1vOmM3sMLCj1vVjzrnRtRf",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/85a22a2be1dcdada1487ef9ba7660448777e1855",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/92bdb0cbd85e01f484c3fac3299d52145abf8980",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/1222175fe03e846c9756e30adc59eb0c6a3d7a7e",
+        "width" : 64
+      } ],
+      "name" : "Drowning (feat. BADBADNOTGOOD)",
+      "type" : "album",
+      "uri" : "spotify:album:1vOmM3sMLCj1vVjzrnRtRf"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/1FvjvACFvko2Z91IvDljrx"
+      },
+      "href" : "https://api.spotify.com/v1/artists/1FvjvACFvko2Z91IvDljrx",
+      "id" : "1FvjvACFvko2Z91IvDljrx",
+      "name" : "Mick Jenkins",
+      "type" : "artist",
+      "uri" : "spotify:artist:1FvjvACFvko2Z91IvDljrx"
+    } ],
+    "disc_number" : 1,
+    "duration_ms" : 360502,
+    "explicit" : true,
+    "external_ids" : {
+      "isrc" : "QMKSC1600109"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/61gcNOZQNjkIseaN0mH1Pp"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/61gcNOZQNjkIseaN0mH1Pp",
+    "id" : "61gcNOZQNjkIseaN0mH1Pp",
+    "is_playable" : true,
+    "name" : "Drowning (feat. Badbadnotgood)",
+    "popularity" : 59,
+    "preview_url" : "https://p.scdn.co/mp3-preview/e3b92b7265ac6fbdfecc382f7173951f02ac3517",
+    "track_number" : 1,
+    "type" : "track",
+    "uri" : "spotify:track:61gcNOZQNjkIseaN0mH1Pp"
+  } ],
+  "total" : 50,
+  "limit" : 10,
+  "offset" : 0,
+  "href" : "https://api.spotify.com/v1/me/top/tracks?limit=10&offset=0",
+  "previous" : null,
+  "next" : "https://api.spotify.com/v1/me/top/tracks?limit=10&offset=10"
+}')
+
+         #get_current_user from Spotify
+         jasper = User.find_or_create_by(username: 'jasper101')
+
+
+         jasper_track["items"].each_with_index do |track, i|
+          name = track["name"]
+          popularity = track['popularity']
+
+          artist_name = track["artists"][0]["name"]
+          image = track["album"]["images"][0]["url"]
+          id= track["id"]
+          ranking= i+1
+
+          song = Song.find_or_create_by(spotify_track_id: id)
+          song.update(name: name, popularity: popularity, album_art: image, artist_name: artist_name)
+          user_song_row= UserSong.new(user_id: jasper.id, song_id: song.id, song_ranking: ranking, term: 'M')
+          user_song_row.save
+         end
+
+
+
+
+
+
+         
