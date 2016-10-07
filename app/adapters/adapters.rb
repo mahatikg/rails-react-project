@@ -12,8 +12,8 @@ module Adapters
 
     def get_token(code) # uses the code we got from initial request to get the token
       redirect_uri="http%3A%2F%2Flocalhost%3A5050%2Fcallback%2F"
-      code=code
-      spot_token= HTTParty.post("https://accounts.spotify.com/api/token",
+      
+      HTTParty.post("https://accounts.spotify.com/api/token",
                  body: {
                   client_id: ENV["client_id"],
                   client_secret: ENV["client_secret"],
@@ -24,8 +24,9 @@ module Adapters
                   #sends a token to the callback uri
     end
 
+
     def get_current_user #makes regular api call to spotify once we got token
-    HTTParty.get("https://api.spotify.com/v1/me/", headers: {"Authorization" => "Bearer #{self.token["access_token"]}"})
+      HTTParty.get("https://api.spotify.com/v1/me/", headers: {"Authorization" => "Bearer #{self.token["access_token"]}"})
       #returns who you are from spotify
       #need to instantiate new user from
     end
