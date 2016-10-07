@@ -2560,10 +2560,3 @@ spotifyhash = JSON.parse('{ "items" : [ {
           user_song_row= UserSong.new(user_id: jasper.id, song_id: song.id, song_ranking: ranking, term: 'M')
           user_song_row.save
          end
-
-
-
-
-
-
-         

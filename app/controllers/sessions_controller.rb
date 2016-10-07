@@ -13,14 +13,15 @@ class SessionsController < ApplicationController
     username = me_object["id"]
     user = User.find_or_create_by(username: username)
       if user
-        token = Auth.issue({id: user.id})
 
+        @@token = Auth.issue({id: user.id})
         # session[:token] = token
       end
   end
 
   def token
-    render json: User.all
+    token = {token: @@token}
+    render json: token
   end
 
  #  def create(username) #Instantiates User
