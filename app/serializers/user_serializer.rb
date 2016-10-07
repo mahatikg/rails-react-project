@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :mid_term, :genre_count
+  attributes :id, :username, :mid_term, :genre_count, :events
 
   def mid_term
     user = object
@@ -48,52 +48,23 @@ class UserSerializer < ActiveModel::Serializer
    genres
   end
 
+  def events
+    events = [{
+                        	"date": Date.parse("2013-05-15T07:00:00.000Z"),
+                        	"text": "Your Top Artist Four Months Ago (FALSE DUMMY DATA!)  ",
+                        	"title": "Drake",
+                        	"imageUrl": "https://i.scdn.co/image/6bd672a0f33705eda4b543c304c21a152f393291"
+    },
+    {
+                      	"date": Date.parse("2013-08-14T07:00:00.000Z"),
+                      	"text": "Your Top Artist 1 Year Ago (THIS IS FALSE, DUMMY DATA)",
+                      	"title": "City of the Sun",
+                      	"imageUrl": "https://i.scdn.co/image/75ab087bcb0a7afd74d64f7f01d0397930657c71"
+    }
+    ]
+
+    events
+  end
+
 
 end
-
-
-
-
-#
-# def pie_chart
-#
-#   pop = 0
-#   rap = 0
-#   indie = 0
-#   hiphop = 0
-#   rock = 0
-#   country = 0
-#   jazz = 0
-#   instrumental = 0
-#   r&b = 0
-#   misc = 0
-#
-#   big_array =
-#   big_array.each do |element|
-#     if
-#       element.include?('rap')
-#       rap += 1
-#     elsif element.include?('pop')
-#       pop += 1
-#     elsif element.include?('indie')
-#       indie +=1
-#     elsif element.include?('hip')
-#       hiphop +=1
-#     elsif element.include?('rock')
-#       rock +=1
-#     elseif element.include?('country')
-#       country += 1
-#     elseif element.include?('classical')
-#       classical +=1
-#     elseif element.include?('jazz')
-#       jazz +=1
-#     elseif element.include?('instrumental')
-#       instrumental +=1
-#     elseif element.include?('r&b')
-#         r&b +=1
-#     else misc += 1
-#     end
-#   end
-#
-#
-# end
