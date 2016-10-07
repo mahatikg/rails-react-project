@@ -15,24 +15,16 @@ class SessionsController < ApplicationController
     username = me_object["id"]
     user = User.find_or_create_by(username: username)
       if user
-        token = Auth.issue({id: user.id})
 
-        session[:token] = token
-        puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-        puts "#{session[:token]}"
-      end
+
+        @@token = Auth.issue({id: user.id})
+        # session[:token] = token
+
   end
 
   def token
-    puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    puts "IN TOKEN METHOD"
-    binding.pry
-    puts "#{session[:token]}"
-    if session[:token]
-      render json: {jwt: session[:token]}
-    else 
-      render json: {error: "Token not available"}
-    end
+    token = {token: @@token}
+    render json: token
   end
 
  #  def create(username) #Instantiates User
