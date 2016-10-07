@@ -3,7 +3,7 @@ module Adapters
     attr_accessor :token
 
     def initialize(params)
-      @token = get_token(params["code"])
+      @token = get_token(params["code"]) #spotify token
     end
 
     def new
@@ -12,7 +12,7 @@ module Adapters
 
     def get_token(code) # uses the code we got from initial request to get the token
       redirect_uri="http%3A%2F%2Flocalhost%3A5050%2Fcallback%2F"
-      
+
       HTTParty.post("https://accounts.spotify.com/api/token",
                  body: {
                   client_id: ENV["client_id"],
@@ -31,6 +31,110 @@ module Adapters
       #need to instantiate new user from
     end
 
+
+    def save_spotify_artist_data(user)
+      terms = ["S", "M", "L"]
+      artists = get_artists
+      UserArtist.where(user_id: user.id).destroy_all
+      terms.each do |term|
+        artists[term]['items'].each_with_index do |artistobject, i|
+          genres = artistobject['genres']
+          spotify_artist_id = artistobject['id']
+          image = artistobject['images'].first['url']
+          name = artistobject['name']
+          popularity = artistobject['popularity']
+          ranking = i + 1
+
+          artist = Artist.find_or_create_by(spotify_artist_id: spotify_artist_id)
+
+          artist.update({genres: genres, image: image, name: name, popularity: popularity})
+
+            #UserArtist.where(user_id: user.id, term: term).destroy_all # this is the problem!! We're deleting all the associations EVERY iteration!
+
+          user_artist = UserArtist.new(user_id: user.id, artist_id: artist.id, artist_ranking: ranking, term: term)
+          user_artist.save
+        end
+      end
+    end
+
+    def save_spotify_track_data(user)
+      terms = ["S", "M", "L"]
+      tracks=get_tracks
+      binding.pry
+      UserSong.where(user_id: user.id).destroy_all
+
+      terms.each do |term|
+          tracks[term]["items"].each_with_index do |track, i|
+            name = track["name"]
+            popularity = track['popularity']
+            artist_name = track["artists"][0]["name"]
+            image = track["album"]["images"][0]["url"]
+            id= track["id"]
+            ranking= i+1
+
+            song = Song.find_or_create_by(spotify_track_id: id)
+            song.update(name: name, popularity: popularity, album_art: image, artist_name: artist_name)
+            user_song= UserSong.new(user_id: user.id, song_id: song.id, song_ranking: ranking, term: term)
+            user_song.save
+          end
+       end
+    end
+
+    def get_tracks
+
+      st_tracks = get_short_term_tracks
+      mt_tracks = get_medium_term_tracks
+      lt_tracks = get_long_term_tracks
+
+
+      {"S" => st_tracks, "M" => mt_tracks, "L" => mt_tracks }
+
+    end
+
+
+    def get_short_term_tracks
+      short_term_tracks =  HTTParty.get("https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=50",
+      headers: {'Accept' => "application/json", 'Authorization' => "Bearer #{token["access_token"]}"})
+
+
+    end
+
+    def get_medium_term_tracks
+      medium_term_tracks =  HTTParty.get("https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=50",
+      headers: {'Accept' => "application/json", 'Authorization' => "Bearer #{token["access_token"]}"})
+
+    end
+
+    def get_long_term_tracks
+      long_term_tracks =  HTTParty.get("https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=50",
+      headers: {'Accept' => "application/json", 'Authorization' => "Bearer #{token["access_token"]}"})
+
+    end
+
+    def get_artists
+      st_artists = get_short_term_artists
+      mt_artists = get_medium_term_artists
+      lt_artists = get_long_term_artists
+      {"S" => st_artists, "M" => mt_artists, "L" => mt_artists }
+    end
+
+    def get_short_term_artists
+      HTTParty.get("https://api.spotify.com/v1/me/top/artists?time_range=short_term&limit=50",
+      headers: {'Accept' => "application/json", 'Authorization' => "Bearer #{token["access_token"]}"})
+    end
+
+    def get_medium_term_artists
+      HTTParty.get("https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=50",
+      headers: {'Accept' => "application/json", 'Authorization' => "Bearer #{token["access_token"]}"})
+    end
+
+    def get_long_term_artists
+      HTTParty.get("https://api.spotify.com/v1/me/top/artists?time_range=long_term&limit=50",
+      headers: {'Accept' => "application/json", 'Authorization' => "Bearer #{token["access_token"]}"})
+    end
+
+
+
 ###################################################
 
     def get_mid_term_data_artists
@@ -45,7 +149,7 @@ module Adapters
       #should return a json hash of top 50 songs
     end
 
-###########################################
+
 
     def format_data_artists #(takes in json of the artists data)
       #iterating through the hash and reformats
