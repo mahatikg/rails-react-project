@@ -1,10 +1,10 @@
 class UserSerializer < ActiveModel::Serializer
 
-  attributes :id, :username, :short_term, :mid_term, :long_term, :genre_count
+  attributes :id, :username, :short_term, :mid_term, :long_term
 
 
   def short_term
-    {"artists"=> st_artist_data, "tracks"=> st_track_data}
+    {"artists"=> st_artist_data, "tracks"=> st_track_data, "genres" => genre_count("S")}
   end
 
   def st_artist_data
@@ -27,7 +27,7 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def mid_term
-    {"artists"=> mt_artist_data, "tracks"=> mt_track_data}
+    {"artists"=> mt_artist_data, "tracks"=> mt_track_data, "genres" => genre_count("M")}
   end
 
   def mt_artist_data
@@ -49,7 +49,7 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def long_term
-    {"artists"=> lt_artist_data, "tracks"=> lt_track_data}
+    {"artists"=> lt_artist_data, "tracks"=> lt_track_data, "genres" => genre_count("L")}
   end
 
   def lt_artist_data
@@ -75,10 +75,10 @@ class UserSerializer < ActiveModel::Serializer
 
     #################pie chart related methods
 
-  def genre_count
+  def genre_count(term)
     #count the genres in object.get_genres
     genres = Hash.new(0)
-    object.get_genres.each do |genre|
+    object.get_genres(term).each do |genre|
       case
         when genre.include?("rap")
           genres[:rap]+=1
