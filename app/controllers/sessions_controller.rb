@@ -14,11 +14,12 @@ class SessionsController < ApplicationController
     me_object = spotify_client.get_current_user
     username = me_object["id"]
     user = User.find_or_create_by(username: username)
+    spotify_client.save_spotify_artist_data(user)
+    spotify_client.save_spotify_track_data(user)
       if user
-
-
         @@token = Auth.issue({id: user.id})
         # session[:token] = token
+      end
 
   end
 
@@ -65,7 +66,7 @@ class SessionsController < ApplicationController
 
 def token_code(token)
 
-long_term_artists =  HTTParty.get("https://api.spotify.com/v1/me/top/artists?time_range=long_term&limit=10",
+  long_term_artists =  HTTParty.get("https://api.spotify.com/v1/me/top/artists?time_range=long_term&limit=50",
   headers: {'Accept' => "application/json", 'Authorization' => "Bearer #{token["access_token"]}"})
 # medium_term_artists =  HTTParty.get("https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=10",
 #     headers: {'Accept' => "application/json", 'Authorization' => "Bearer #{token["access_token"]}"})
@@ -77,7 +78,6 @@ long_term_artists =  HTTParty.get("https://api.spotify.com/v1/me/top/artists?tim
 #               headers: {'Accept' => "application/json", 'Authorization' => "Bearer #{token["access_token"]}"})
 # short_term_tracks =  HTTParty.get("https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=10",
 #                       headers: {'Accept' => "application/json", 'Authorization' => "Bearer #{token["access_token"]}"})
-binding.pry
 end
 
   # private
