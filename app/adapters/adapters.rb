@@ -87,7 +87,7 @@ module Adapters
       lt_tracks = get_long_term_tracks
 
 
-      {"S" => st_tracks, "M" => mt_tracks, "L" => mt_tracks }
+      {"S" => st_tracks, "M" => mt_tracks, "L" => lt_tracks }
 
     end
 
@@ -115,7 +115,7 @@ module Adapters
       st_artists = get_short_term_artists
       mt_artists = get_medium_term_artists
       lt_artists = get_long_term_artists
-      {"S" => st_artists, "M" => mt_artists, "L" => mt_artists }
+      {"S" => st_artists, "M" => mt_artists, "L" => lt_artists }
     end
 
     def get_short_term_artists

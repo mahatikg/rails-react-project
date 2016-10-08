@@ -1,6 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
 
-  attributes :id, :username, :short_term, :mid_term, :long_term, :genre_count, :events
+  attributes :id, :username, :short_term, :mid_term, :long_term, :genre_count
 
 
   def short_term
@@ -73,8 +73,6 @@ class UserSerializer < ActiveModel::Serializer
   end
 
 
-
-
     #################pie chart related methods
 
   def genre_count
@@ -107,22 +105,5 @@ class UserSerializer < ActiveModel::Serializer
    genres
   end
 
-  def events
-    events = [{
-              "date": Date.parse("2013-05-15T07:00:00.000Z"),
-              "text": "Your Top Artist Four Months Ago (FALSE DUMMY DATA!)  ",
-              "title": "Drake",
-              "imageUrl": "https://i.scdn.co/image/6bd672a0f33705eda4b543c304c21a152f393291"
-    },
-    {
-              "date": Date.parse("2013-08-14T07:00:00.000Z"),
-              "text": "Your Top Artist 1 Year Ago (THIS IS FALSE, DUMMY DATA)",
-              "title": "City of the Sun",
-              "imageUrl": "https://i.scdn.co/image/75ab087bcb0a7afd74d64f7f01d0397930657c71"
-    }
-    ]
-
-    events
-  end
 
 end
