@@ -1,50 +1,77 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :mid_term, :short_term, :long_term
+  attributes :id, :username, :short_term, :mid_term, :long_term
 
-  def mid_term
-    user = object
-    user_artists = user.artists
-    user_songs= user.songs
-    modified_artist = []
-
-    ua = UserArtist.where(user_id: user.id, term: "M")
-    artist_array = ua.map do |row|
-      artist = row.artist
-      new_artist={name: artist["name"], popularity: artist["popularity"], image: artist["image"], rank: row.artist_ranking}
-    end
-    #binding.pry
-    {"artists"=> artist_array}
-  end
 
   def short_term
+    {"artists"=> st_artist_data, "tracks"=> st_track_data}
+  end
+
+  def st_artist_data
     user = object
-    user_artists = user.artists
-    user_songs= user.songs
-    modified_artist = []
 
     ua = UserArtist.where(user_id: user.id, term: "S")
     artist_array = ua.map do |row|
       artist = row.artist
       new_artist={name: artist["name"], popularity: artist["popularity"], image: artist["image"], rank: row.artist_ranking}
     end
-    #binding.pry
-    {"artists"=> artist_array}
+  end
+
+  def st_track_data
+    user = object
+    us = UserSong.where(user_id: user.id, term: "S")
+    song_array = us.map do |row|
+      song = row.song
+      new_song={name: song["name"], popularity: song["popularity"], image: song["album_art"], rank: row.song_ranking}
+    end
+  end
+
+  def mid_term
+    {"artists"=> mt_artist_data, "tracks"=> mt_track_data}
+  end
+
+  def mt_artist_data
+    user = object
+
+    ua = UserArtist.where(user_id: user.id, term: "M")
+    artist_array = ua.map do |row|
+      artist = row.artist
+      new_artist={name: artist["name"], popularity: artist["popularity"], image: artist["image"], rank: row.artist_ranking}
+    end
+  end
+
+  def mt_track_data
+    user = object
+    us = UserSong.where(user_id: user.id, term: "M")
+    song_array = us.map do |row|
+      song = row.song
+      new_song={name: song["name"], popularity: song["popularity"], image: song["album_art"], rank: row.song_ranking}
+    end
   end
 
   def long_term
+    {"artists"=> lt_artist_data, "tracks"=> lt_track_data}
+  end
+
+  def lt_artist_data
     user = object
-    user_artists = user.artists
-    user_songs= user.songs
-    modified_artist = []
 
     ua = UserArtist.where(user_id: user.id, term: "L")
     artist_array = ua.map do |row|
       artist = row.artist
       new_artist={name: artist["name"], popularity: artist["popularity"], image: artist["image"], rank: row.artist_ranking}
     end
-    #binding.pry
-    {"artists"=> artist_array}
   end
+
+  def lt_track_data
+    user = object
+
+    us = UserSong.where(user_id: user.id, term: "L")
+    song_array = us.map do |row|
+      song = row.song
+      new_song={name: song["name"], popularity: song["popularity"], image: song["album_art"], rank: row.song_ranking}
+    end
+  end
+
 
 
 end

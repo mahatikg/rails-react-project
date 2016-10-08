@@ -60,7 +60,7 @@ module Adapters
     def save_spotify_track_data(user)
       terms = ["S", "M", "L"]
       tracks=get_tracks
-      binding.pry
+
       UserSong.where(user_id: user.id).destroy_all
 
       terms.each do |term|
