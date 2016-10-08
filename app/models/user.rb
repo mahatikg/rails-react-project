@@ -4,11 +4,20 @@ has_many :songs, through: :user_songs
 has_many :user_artists
 has_many :artists, through: :user_artists
 
-def get_genres
-  self.artists.map do |artist|
-   artist.genres
- end.flatten
+
+def get_genres(term)
+	user_artist_collection = UserArtist.where(user_id: self.id, term: term)
+    user_artist_collection.map do |user_artist|
+    	user_artist.artist.genres
+    end.flatten
 end
+
+
+# def get_genres
+#   self.artists.map do |artist|
+#    artist.genres
+#  end.flatten
+# end
 
 #   def self.find_or_create_from_spotify(payload)
 #     # HOW TO GET CURRENT USER FROM SPOTIFY. this should happen in the controller
