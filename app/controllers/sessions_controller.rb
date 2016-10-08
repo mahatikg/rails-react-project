@@ -13,14 +13,16 @@ class SessionsController < ApplicationController
     # spotify_token is the spotify_token that we will use to get a user
     me_object = spotify_client.get_current_user
     username = me_object["id"]
+    if username
     user = User.find_or_create_by(username: username)
     spotify_client.save_spotify_artist_data(user)
     spotify_client.save_spotify_track_data(user)
+    end
       if user
         @@token = Auth.issue({id: user.id})
         # session[:token] = token
       end
-
+      redirect_to "http://localhost:3000/"
   end
 
   def token

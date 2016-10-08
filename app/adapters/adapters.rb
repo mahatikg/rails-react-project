@@ -22,6 +22,7 @@ module Adapters
                   code: code
                   })
                   #sends a token to the callback uri
+
     end
 
 
