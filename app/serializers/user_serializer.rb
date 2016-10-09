@@ -89,7 +89,7 @@ class UserSerializer < ActiveModel::Serializer
         when genre.include?("indie")
           genres[:indie]+=1
         when genre.include?("hip")
-          genres[:hip]+=1
+          genres["hip hop"]+=1
         when genre.include?("rock")
           genres[:rock]+=1
         when genre.include?("jazz")
@@ -103,6 +103,20 @@ class UserSerializer < ActiveModel::Serializer
         end
     end
    genres
+  end
+
+
+  def genre_count1(term)
+    genres = object.get_genres(term)
+    counted_genres = genres.uniq.map { |genre| [genre, genres.count(genre)]}
+    sorted_counted_genres = counted_genres.sort { |a,b| b[1] <=> a[1] }
+    top_9_genres = sorted_counted_genres[0..8]
+    remaining_genres = sorted_counted_genres[9..-1]
+    misc_count = 0
+    remaining_genres.each {|array| misc_count += array[1]}
+    genres_hash = Hash[*top_9_genres.flatten]
+    genres_hash["misc"] = misc_count
+    genres_hash
   end
 
 

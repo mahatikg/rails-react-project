@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
         @@token = Auth.issue({id: user.id})
         # session[:token] = token
       end
-      redirect_to "http://localhost:3000/"
+      redirect_to "http://localhost:3000/users/#{user.id}"
   end
 
   def token
