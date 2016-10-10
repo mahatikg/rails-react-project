@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show'
+  get '/compare', to: 'users#compare'
 
   get '/token', to: 'sessions#token'
   get '/get-auth-code', to: "sessions#get_auth_code"

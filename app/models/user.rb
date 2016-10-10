@@ -12,6 +12,19 @@ def get_genres(term)
     end.flatten
 end
 
+def compare(user)
+	user1_artists= self.artists
+	user2_artists= user.artists
+
+	shared_artists= []
+		user1_artists.each do |artist|
+			if user2_artists.include?(artist)
+				shared_artists<<artist
+			end
+		end
+		shared_artists.uniq!
+end
+
 
 # def get_genres
 #   self.artists.map do |artist|
