@@ -13,7 +13,7 @@ class UserSerializer < ActiveModel::Serializer
     ua = UserArtist.where(user_id: user.id, term: "S")
     artist_array = ua.map do |row|
       artist = row.artist
-      new_artist={name: artist["name"], popularity: artist["popularity"], image: artist["image"], rank: row.artist_ranking}
+      new_artist={name: artist["name"], popularity: artist["popularity"], image: artist["image"], rank: row.artist_ranking, spotify_artist_id: artist["spotify_artist_id"]}
     end
   end
 
@@ -35,7 +35,7 @@ class UserSerializer < ActiveModel::Serializer
     ua = UserArtist.where(user_id: user.id, term: "M")
     artist_array = ua.map do |row|
       artist = row.artist
-      new_artist={name: artist["name"], popularity: artist["popularity"], image: artist["image"], rank: row.artist_ranking}
+      new_artist={name: artist["name"], popularity: artist["popularity"], image: artist["image"], rank: row.artist_ranking, spotify_artist_id: artist["spotify_artist_id"]}
     end
   end
 
@@ -58,8 +58,9 @@ class UserSerializer < ActiveModel::Serializer
     ua = UserArtist.where(user_id: user.id, term: "L")
     artist_array = ua.map do |row|
       artist = row.artist
-      new_artist={name: artist["name"], popularity: artist["popularity"], image: artist["image"], rank: row.artist_ranking}
+      new_artist={name: artist["name"], popularity: artist["popularity"], image: artist["image"], rank: row.artist_ranking, spotify_artist_id: artist["spotify_artist_id"]}
     end
+    artist_array.sort {|a,b| a[:rank] <=> b[:rank]}
   end
 
   def lt_track_data
@@ -70,6 +71,8 @@ class UserSerializer < ActiveModel::Serializer
       song = row.song
       new_song={name: song["name"], popularity: song["popularity"], image: song["album_art"], rank: row.song_ranking}
     end
+    song_array.sort {|a,b| a[:rank] <=> b[:rank]}
+
   end
 
 
