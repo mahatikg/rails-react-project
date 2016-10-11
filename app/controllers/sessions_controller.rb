@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   # skip_before_action :authenticate
 
   def get_auth_code
-    HTTParty.get("https://accounts.spotify.com/authorize/?client_id=031ed6ea90bd4727b184cd84219dd697&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A5050%2Fcallback%2F&scope=user-top-read")
+    HTTParty.get("https://accounts.spotify.com/authorize/?client_id=031ed6ea90bd4727b184cd84219dd697&response_type=code&redirect_uri=http%3A%2F%2Frocky-dusk-25774.herokuapp.com%2Fcallback%2F&scope=user-top-read")
   end
 
   def parsecode #calls adapter method get_token
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
         @@token = Auth.issue({id: user.id})
         # session[:token] = token
       end
-      redirect_to "http://localhost:3000/users/#{user.id}"
+      redirect_to "https://spotify-compare.herokuapp.com/users/#{user.id}"
   end
 
   def token

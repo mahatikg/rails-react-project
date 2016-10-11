@@ -11,7 +11,7 @@ module Adapters
     end
 
     def get_token(code) # uses the code we got from initial request to get the token
-      redirect_uri="http%3A%2F%2Flocalhost%3A5050%2Fcallback%2F"
+      redirect_uri="http%3A%2F%2Frocky-dusk-25774.herokuapp.com%2Fcallback%2F"
 
       HTTParty.post("https://accounts.spotify.com/api/token",
                  body: {
