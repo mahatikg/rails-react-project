@@ -12,6 +12,17 @@ def get_genres(term)
     end.flatten
 end
 
+#################
+
+  def self.compare_artist(other_user) 
+  	 artist_box =[]
+  	 jas.artists.map {|e|e.name}
+     artist_box << self.artists
+     artist_box << other_user.artists
+     artist_box.group_by{ |e| e }.select { |k, v| v.size > 1 }.map(&:first)
+  end
+
+  
 
 # def get_genres
 #   self.artists.map do |artist|
