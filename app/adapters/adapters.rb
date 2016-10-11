@@ -41,7 +41,9 @@ module Adapters
         artists[term]['items'].each_with_index do |artistobject, i|
           genres = artistobject['genres']
           spotify_artist_id = artistobject['id']
-          image = artistobject['images'].first['url']
+          if artistobject['images'].first
+            image = artistobject['images'].first['url']
+          end
           name = artistobject['name']
           popularity = artistobject['popularity']
           ranking = i + 1
@@ -50,8 +52,7 @@ module Adapters
 
           artist.update({genres: genres, image: image, name: name, popularity: popularity})
 
-            #UserArtist.where(user_id: user.id, term: term).destroy_all # this is the problem!! We're deleting all the associations EVERY iteration!
-
+            #UserArtist.where(user_id: user.id, term: term).destroy_all # this is the problem!! We're deleting all the associations EVERY iteration
           user_artist = UserArtist.new(user_id: user.id, artist_id: artist.id, artist_ranking: ranking, term: term)
           user_artist.save
         end
