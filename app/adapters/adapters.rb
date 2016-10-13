@@ -1,3 +1,5 @@
+require 'json'
+
 module Adapters
   class SpotifyApi
     attr_accessor :token
@@ -67,11 +69,11 @@ module Adapters
             popularity = track['popularity']
             artist_name = track["artists"][0]["name"]
             image = track["album"]["images"][0]["url"]
+            uri = track["uri"]
             id= track["id"]
             ranking= i+1
-
             song = Song.find_or_create_by(spotify_track_id: id)
-            song.update(name: name, popularity: popularity, album_art: image, artist_name: artist_name)
+            song.update(name: name, popularity: popularity, album_art: image, artist_name: artist_name, uri: uri)
             user_song= UserSong.new(user_id: user.id, song_id: song.id, song_ranking: ranking, term: term)
             user_song.save
           end
@@ -172,6 +174,58 @@ module Adapters
 
 
 
+
+  end
+
+  class SpotifyApiPlaylist
+    attr_accessor :token, :userid, :user
+
+    def initialize(params)
+      @token = get_token(params["code"]) #spotify token
+      @userid = get_current_user["id"]
+      @user = User.find_by(username: @userid)
+    end
+
+    def get_token(code) # uses the code we got from initial request to get the token
+      redirect_uri= "http%3A%2F%2Flocalhost%3A5050%2Ftopplay%2F"
+
+      HTTParty.post("https://accounts.spotify.com/api/token",
+                 body: {
+                  client_id: ENV["client_id"],
+                  client_secret: ENV["client_secret"],
+                  redirect_uri: redirect_uri,
+                  grant_type: "authorization_code",
+                  code: code
+                  })
+                  #sends a token to the callback uri
+    end
+
+    def get_current_user
+      HTTParty.get("https://api.spotify.com/v1/me/", headers: {"Authorization" => "Bearer #{self.token["access_token"]}"})
+    end
+
+    def make_playlist
+       playlist = HTTParty.post("https://api.spotify.com/v1/users/#{@userid}/playlists",
+                headers: {'Accept' => "application/json", 'Authorization' => "Bearer #{token["access_token"]}"},
+                 body: "{\"name\":\"Staste - Top 50\", \"public\":false}",
+                  json: true)
+
+      {url: playlist["external_urls"]["spotify"], id: playlist["id"]}
+    end
+
+
+    def get_top_track_uris
+      playlist_info = make_playlist
+      {uri_collection: user.top_song_URIs, playlist_id: playlist_info[:id]}
+    end
+
+    def save_playlist
+      request_info = get_top_track_uris
+      playlist = HTTParty.post("https://api.spotify.com/v1/users/#{@userid}/playlists/#{request_info[:playlist_id]}/tracks",
+               headers: {'Accept' => "application/json", 'Authorization' => "Bearer #{token["access_token"]}"},
+                body: {"uris": request_info[:uri_collection]}.to_json,
+                 json: true)
+    end
 
   end
 end
