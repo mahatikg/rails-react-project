@@ -22,4 +22,10 @@ class SessionsController < ApplicationController
     render json: token
   end
 
+  def topplay
+    spotify_client = Adapters::SpotifyApiPlaylist.new(params)
+    spotify_client.save_playlist
+
+  end
+
 end

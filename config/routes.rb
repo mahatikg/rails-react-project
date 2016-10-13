@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   # post '/login', to: "sessions#create"
 
   get '/spotifyauthenticate', to: 'sessions#spotifyauthenticate'
-
-  post '/callback/', to: 'sessions#parsecode'
+  # 
+  # post '/callback/', to: 'sessions#parsecode'
   get '/callback/', to: 'sessions#parsecode'
 
   get '/users', to: 'users#index'
@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get '/token', to: 'sessions#token'
   get '/get-auth-code', to: "sessions#get_auth_code"
+
+  get '/topplay/', to: 'sessions#topplay'
 
 
 end

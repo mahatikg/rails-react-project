@@ -160,6 +160,7 @@ DEPENDENCIES
   byebug
   figaro
   httparty
+  json
   jwt
   listen (~> 3.0.5)
   pg (~> 0.18)
