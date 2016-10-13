@@ -1,7 +1,7 @@
 class UserSerializer < ActiveModel::Serializer
 
-  attributes :id, :username, :short_term, :mid_term, :long_term
-
+  attributes :id, :username, :display_name, :short_term, :mid_term, :long_term
+  
 
   def short_term
     {"artists"=> st_artist_data, "tracks"=> st_track_data, "genres" => genre_count("S")}
