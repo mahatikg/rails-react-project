@@ -26,6 +26,22 @@ def compare(user)
 		shared_artists.uniq!
 end
 
+def soulmate
+	user1_artists= self.artists
+
+
+
+
+end
+
+def top_song_URIs
+	us = UserSong.where(user_id: self.id, term: "L")
+	song_array = us.map do |row|
+		row.song.uri
+	end
+end
+
+
 # def get_genres
 #   self.artists.map do |artist|
 #    artist.genres
