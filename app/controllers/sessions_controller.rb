@@ -25,6 +25,12 @@ class SessionsController < ApplicationController
   def topplay
     spotify_client = Adapters::SpotifyApiPlaylist.new(params)
     spotify_client.save_playlist
+    me_object = spotify_client.get_current_user
+    username = me_object["id"]
+    if username
+      user = User.find_by(username: username)
+    end
+    redirect_to ENV['SPOT_REDIRECT'] + "#{user.id}"
 
   end
 
