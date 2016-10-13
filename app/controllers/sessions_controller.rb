@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
     username = me_object["id"]
     if username
       user = User.find_or_create_by(username: username)
+      user.update(display_name: me_object["display_name"])
       spotify_client.save_spotify_artist_data(user)
       spotify_client.save_spotify_track_data(user)
     end
