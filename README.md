@@ -1,7 +1,7 @@
 # README
 
 This Rails5.0API instantiates each new spotify user and stores the data recieved from the Spotify API. 
-This API is designed to work in tandem with the Spotify React-App which can be found here. 
+This API is designed to work in tandem with the Spotify React-App which can be found [here](https://github.com/mahatikg/react_spotify). 
 In order to populate the database both the Rails5.0 API and the React-App need to be running. 
 
 
