@@ -2,14 +2,12 @@ class UserSerializer < ActiveModel::Serializer
 
   attributes :id, :username, :display_name, :short_term, :mid_term, :long_term
 
-
   def short_term
     {"artists"=> st_artist_data, "tracks"=> st_track_data, "genres" => genre_count("S")}
   end
 
   def st_artist_data
     user = object
-
     ua = UserArtist.where(user_id: user.id, term: "S")
     artist_array = ua.map do |row|
       artist = row.artist
@@ -75,8 +73,7 @@ class UserSerializer < ActiveModel::Serializer
 
   end
 
-
-    #################pie chart related methods
+ #methods to organize pie chart data
 
   def genre_count(term)
     #count the genres in object.get_genres
